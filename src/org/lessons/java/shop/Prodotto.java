@@ -4,13 +4,25 @@ import java.util.Random;
 
 public class Prodotto {
 	
-	int productCode;
-	String name;
-	String description;
-	double price;
-	double tax = 0.22;
+	private int productCode;
+	private String name;
+	private String description;
+	private double price;
+	private double tax;
 	
-	void setCode() {
+	Prodotto () {
+		setCode();
+		tax = 0.22;
+	}
+	
+	Prodotto (String name, String description, double price) {
+		this ();
+		this.name = name;
+		this.description = description;
+		this.price = price;
+	}
+	
+	private void setCode() {
 		Random ran = new Random();
 		productCode = ran.nextInt(99999);
 	}
@@ -28,4 +40,9 @@ public class Prodotto {
 	String productIdentification() {
 		return productCode + "-" + name;
 	}
+	
+	String getDescription () {
+		return description;
+	}
 }
+
